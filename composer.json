@@ -1,0 +1,45 @@
+{
+    "name": "dreibein/contao-youtube-bundle",
+    "type": "contao-bundle",
+    "description": "Dreibein Jobradar",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Thomas Voggenreiter",
+            "email": "t.voggenreiter@agentur-dreibein.de",
+            "homepage": "https://www.agentur-dreibein.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.0",
+        "contao/core-bundle": "^4.4"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-parallel-lint/php-parallel-lint": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "contao-manager-plugin": "Dreibein\\YoutubeBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dreibein\\YoutubeBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    }
+}

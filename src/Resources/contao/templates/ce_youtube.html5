@@ -1,0 +1,41 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+    <figure id="videoContainer_<?= $this->id ?>" class="video_container js-video-container">
+        <div class="video-container-placeholder js-video-replace-container<?php if ($this->aspect): ?> ratio-<?= $this->aspect ?><?php endif; ?>">
+            <?php if ($this->splashImage): ?>
+                <div id="videoAccept_<?= $this->id ?>" class="video-accept-container js-video-accept-container">
+                    <?php $this->insert('picture_default', $this->splashImage->picture); ?>
+                    <div class="video-accept-text-container">
+                        <p>Ja, ich möchte Inhalte von Youtube angezeigt bekommen. Weitere Informationen finden Sie in unserer <a href="<?= $this->dataProtectionUrl ?>" title="Datenschutzerklärung">Datenschutzerklärung</a>.</p>
+                        <a id="videoLink_<?= $this->id ?>" href="<?= $this->src ?>" class="js-video-link"  title="externe Inhalte aktivieren" data-width="<?= $this->width ?>" data-height="<?= $this->height ?>">
+                            Inhalte aktivieren
+                        </a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <iframe<?= $this->size ?> src="<?= $this->src ?>" allowfullscreen></iframe>
+            <?php endif; ?>
+        </div>
+        <?php if ($this->caption): ?>
+            <figcaption class="caption"><?= $this->caption ?></figcaption>
+        <?php endif; ?>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                "name": "<?= $this->schemaOrg['name'] ?>",
+                "description": "<?= $this->schemaOrg['description'] ?>",
+                "caption": "<?= $this->schemaOrg['caption'] ?>",
+                "thumbnailUrl": [
+                    "<?= $this->schemaOrg['thumbnailUrl'] ?>"
+                ],
+                "uploadDate": "<?= $this->schemaOrg['uploadDate'] ?>",
+                "duration": "<?= $this->schemaOrg['duration'] ?>",
+                "contentUrl": "<?= $this->schemaOrg['contentUrl'] ?>"
+            }
+        </script>
+    </figure>
+
+<?php $this->endblock(); ?>

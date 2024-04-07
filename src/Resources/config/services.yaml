@@ -1,0 +1,7 @@
+services:
+  Dreibein\YoutubeBundle\Youtube\PreviewImage:
+    class: Dreibein\YoutubeBundle\Youtube\PreviewImage
+    arguments:
+      - '@kernel'
+      - '@monolog.logger.contao'
+    public: true

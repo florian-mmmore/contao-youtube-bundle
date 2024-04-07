@@ -1,0 +1,6 @@
+services:
+  Dreibein\YoutubeBundle\EventListener\YoutubeElementListener:
+    class: Dreibein\YoutubeBundle\EventListener\YoutubeElementListener
+    arguments:
+      - '@Dreibein\YoutubeBundle\Youtube\PreviewImage'
+    public: true
